@@ -66,7 +66,8 @@ const Checkout = () => {
       await new Promise(resolve => setTimeout(resolve, 2000));
       
       // In a real implementation, this would integrate with Stripe
-      const stripeCheckoutUrl = `https://checkout.stripe.com/pay/cs_test_example#fidkdWxOYHwnPyd1blpxYHZxWjA0S0NKZmZeRz1rTFRUZ212bGp2TVhAfzRnNjxqTkl2czVPazFmYT00YlxUUURdUTRHTmB%2FXUJVNFBRbGNcUUF0T0RkYGN3fjw%2FQnN0YDUxck1MTDU2TUIxbmBibDMzcjRpY18wPGBhfScpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVdeUkk1SXRFWk9xNnZgZGp1Y2UzQFtOPWByTEtgbDU3VE1XaE5%2FYW1NNm1HJyknaWpmYmlgYURkfml2fWxnYGVmdWFhKSdkcGl6K2dkcTZkamxqdWl2fWpsK2BhZ2dkcExuJ21gZ2dkZnFrZytkYWJhZml0fGdsZGFnZGR8aGpsZCdqK2RoZ2BgZGdkZmlwZGxnfGpsZGlsZGNqZ3NoZydeZmYndWJnKSN6YGRfanN2YXdofGQ9YmxjYWxnYStkamJpYWZgKCdkZWp2amV8Z2dqZGlsZycpaWdkdWNiaGZ8dWZsYWNhZ2RpYGBhYWdn`) + `?amount=${Math.round(parseFloat(amount) * 100)}`;
+      const baseStripeUrl = "https://checkout.stripe.com/pay/cs_test_example#fidkdWxOYHwnPyd1blpxYHZxWjA0S0NKZmZeRz1rTFRUZ212bGp2TVhAfzRnNjxqTkl2czVPazFmYT00YlxUUURdUTRHTmB%2FXUJVNFBRbGNcUUF0T0RkYGN3fjw%2FQnN0YDUxck1MTDU2TUIxbmBibDMzcjRpY18wPGBhfScpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVdeUkk1SXRFWk9xNnZgZGp1Y2UzQFtOPWByTEtgbDU3VE1XaE5%2FYW1NNm1HJyknaWpmYmlgYURkfml2fWxnYGVmdWFhKSdkcGl6K2dkcTZkamxqdWl2fWpsK2BhZ2dkcExuJ21gZ2dkZnFrZytkYWJhZml0fGdsZGFnZGR8aGpsZCdqK2RoZ2BgZGdkZmlwZGxnfGpsZGlsZGNqZ3NoZydeZmYndWJnKSN6YGRfanN2YXdofGQ9YmxjYWxnYStkamJpYWZgKCdkZWp2amV8Z2dqZGlsZycpaWdkdWNiaGZ8dWZsYWNhZ2RpYGBhYWdn";
+      const stripeCheckoutUrl = `${baseStripeUrl}?amount=${Math.round(parseFloat(amount) * 100)}`;
       
       // Open Stripe checkout in a new tab
       window.open(stripeCheckoutUrl, '_blank');
