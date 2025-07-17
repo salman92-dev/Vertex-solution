@@ -9,10 +9,14 @@ import Footer from "@/components/Footer";
 import { useToast } from "@/hooks/use-toast";
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+// Check if Supabase environment variables are available
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+// Only create Supabase client if environment variables are available
+const supabase = supabaseUrl && supabaseAnonKey 
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null;
 
 const Checkout = () => {
   const { service } = useParams();
@@ -56,6 +60,15 @@ const Checkout = () => {
   }
 
   const handlePayment = async () => {
+    if (!supabase) {
+      toast({
+        title: "Setup Required",
+        description: "Please connect to Supabase to enable payments.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsLoading(true);
 
     try {
@@ -146,10 +159,10 @@ const Checkout = () => {
 
                 <Button
                   onClick={handlePayment}
-                  disabled={isLoading}
+                  disabled={isLoading || !supabase}
                   className="w-full h-12 text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
                 >
-                  {isLoading ? "Processing..." : `Proceed to Payment`}
+                  {isLoading ? "Processing..." : !supabase ? "Setup Required" : `Proceed to Payment`}
                 </Button>
 
                 <div className="text-center text-sm text-gray-500">
