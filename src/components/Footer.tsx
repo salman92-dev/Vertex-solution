@@ -72,7 +72,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © {getCurrentYear()} DigitalPro. All rights reserved.
+            © {getCurrentYear()} Vertex Solutions. All rights reserved.
           </p>
         </div>
       </div>

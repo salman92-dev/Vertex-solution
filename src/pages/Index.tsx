@@ -33,7 +33,7 @@ const Index = () => {
       name: "Sarah Johnson",
       company: "Tech Startup Inc.",
       rating: 5,
-      text: "DigitalPro transformed our online presence. Our website traffic increased by 300% in just 6 months!"
+      text: "Vertex solutions transformed our online presence. Our website traffic increased by 300% in just 6 months!"
     },
     {
       name: "Mike Chen",
