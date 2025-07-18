@@ -29,8 +29,8 @@ serve(async (req) => {
           quantity: amount,
         },
       ],
-      success_url: "http://localhost:8080/success",
-      cancel_url: "http://localhost:8080/cancel",
+      success_url: "http://localhost:8080/PaymentSuccess",
+      cancel_url: "http://localhost:8080/PaymentCanceled",
     });
 
     return new Response(JSON.stringify({ url: session.url }), {

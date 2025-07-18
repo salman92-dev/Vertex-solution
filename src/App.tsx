@@ -9,8 +9,8 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Portfolio from "./pages/Portfolio";
 import Checkout from "./pages/Checkout";
-import PaymentSuccess from "./pages/PaymentSuccess";
-import PaymentCanceled from "./pages/PaymentCanceled";
+import PaymentSuccess from "./pages/Payment-Success";
+import PaymentCanceled from "./pages/Payment-Canceled";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
