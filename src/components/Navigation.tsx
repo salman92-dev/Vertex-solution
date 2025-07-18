@@ -23,7 +23,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
             <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              <img className="w-[10%]" src="/logo2.png" alt="logo"/>
+              <img className="w-[10%] max-md:w-[20%]" src="/logo2.png" alt="logo"/>
             </span>
           </Link>
 

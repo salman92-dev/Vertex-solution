@@ -14,7 +14,7 @@ const Footer = () => {
           <div>
             <Link to="/" className="flex items-center mb-4">
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                <img className="w-[30%] mix-blend-color-dodge rounded-full" src="/logo.png"/>
+                <img className="w-[30%] max-md:w-[20%] mix-blend-color-dodge rounded-full" src="/logo.png"/>
               </span>
             </Link>
             <p className="text-gray-400 mb-4">
