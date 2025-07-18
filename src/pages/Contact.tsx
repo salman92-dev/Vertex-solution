@@ -65,19 +65,19 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "info@digitalpro.com",
+      details: "Brandonshawnwheatt@gmail.com",
       subtitle: "We'll respond within 24 hours"
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: "+1 (555) 123-4567",
+      details: "+1 (606) 6588085",
       subtitle: "Mon-Fri 9:00 AM - 6:00 PM EST"
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      details: "123 Digital Street, Tech City, TC 12345",
+      details: "3118 SW 15TH AVE APT 44 AMARILLO ,TX 79108",
       subtitle: "By appointment only"
     },
     {

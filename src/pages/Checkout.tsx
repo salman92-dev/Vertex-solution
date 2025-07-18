@@ -116,7 +116,7 @@ const handlePayment = async () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Service Details */}
-            <Card className="h-fit">
+            {/* <Card className="h-fit">
               <CardHeader>
                 <CardTitle className="text-2xl">{currentService.title}</CardTitle>
               </CardHeader>
@@ -138,7 +138,7 @@ const handlePayment = async () => {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </Card> */}
 
             {/* Payment Form */}
             <Card>
@@ -183,14 +183,14 @@ const handlePayment = async () => {
                   </Button>
                   
                   <div className="grid grid-cols-3 gap-2">
+                    <Button variant="outline" onClick={() => setAmount("5")} size="sm">
+                      $5
+                    </Button>
+                    <Button variant="outline" onClick={() => setAmount("20")} size="sm">
+                      $20
+                    </Button>
                     <Button variant="outline" onClick={() => setAmount("50")} size="sm">
                       $50
-                    </Button>
-                    <Button variant="outline" onClick={() => setAmount("100")} size="sm">
-                      $100
-                    </Button>
-                    <Button variant="outline" onClick={() => setAmount("200")} size="sm">
-                      $200
                     </Button>
                   </div>
                 </div>

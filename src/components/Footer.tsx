@@ -14,7 +14,7 @@ const Footer = () => {
           <div>
             <Link to="/" className="flex items-center mb-4">
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                DigitalPro
+                <img className="w-[30%] mix-blend-color-dodge rounded-full" src="/logo.png"/>
               </span>
             </Link>
             <p className="text-gray-400 mb-4">
@@ -56,15 +56,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center">
                 <Mail className="h-4 w-4 mr-2 text-blue-400" />
-                <span className="text-gray-400">info@digitalpro.com</span>
+                <span className="text-gray-400">Brandonshawnwheatt@gmail.com</span>
               </div>
               <div className="flex items-center">
                 <Phone className="h-4 w-4 mr-2 text-blue-400" />
-                <span className="text-gray-400">+1 (555) 123-4567</span>
+                <span className="text-gray-400">+1 (606) 6588085</span>
               </div>
               <div className="flex items-center">
                 <MapPin className="h-4 w-4 mr-2 text-blue-400" />
-                <span className="text-gray-400">123 Digital Street, Tech City</span>
+                <span className="text-gray-400">3118 SW 15TH AVE APT 44 AMARILLO ,TX 79108</span>
               </div>
             </div>
           </div>
