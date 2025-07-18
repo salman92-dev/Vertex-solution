@@ -73,8 +73,10 @@ const handlePayment = async () => {
 
         },
         body: JSON.stringify({
-          priceId : 'price_1Rlx64EPJAFaH4xwGYVorI2d',
+          priceId : 'price_1RmFFGCdz33VDPAq9WzvwWtx',
           amount: parseFloat(amount), // send amount or priceId etc.
+          successUrl: `${window.location.origin}/Payment-Success`,
+          cancelUrl: `${window.location.origin}/Payment-Canceled`,
         }),
       }
     );
