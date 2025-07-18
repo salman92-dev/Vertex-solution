@@ -49,44 +49,56 @@ const Checkout = () => {
     );
   }
 
-  const handlePayment = async () => {
-    if (!amount || parseFloat(amount) < 1) {
-      toast({
-        title: "Invalid Amount",
-        description: "Please enter an amount of at least $1",
-        variant: "destructive",
-      });
-      return;
-    }
+const handlePayment = async () => {
+  if (!amount || parseFloat(amount) < 1) {
+    toast({
+      title: "Invalid Amount",
+      description: "Please enter an amount of at least $1",
+      variant: "destructive",
+    });
+    return;
+  }
 
-    setIsLoading(true);
+  setIsLoading(true);
 
-    try {
-      // Simulate payment processing
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // In a real implementation, this would integrate with Stripe
-      const baseStripeUrl = "https://checkout.stripe.com/pay/cs_test_example#fidkdWxOYHwnPyd1blpxYHZxWjA0S0NKZmZeRz1rTFRUZ212bGp2TVhAfzRnNjxqTkl2czVPazFmYT00YlxUUURdUTRHTmB%2FXUJVNFBRbGNcUUF0T0RkYGN3fjw%2FQnN0YDUxck1MTDU2TUIxbmBibDMzcjRpY18wPGBhfScpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVdeUkk1SXRFWk9xNnZgZGp1Y2UzQFtOPWByTEtgbDU3VE1XaE5%2FYW1NNm1HJyknaWpmYmlgYURkfml2fWxnYGVmdWFhKSdkcGl6K2dkcTZkamxqdWl2fWpsK2BhZ2dkcExuJ21gZ2dkZnFrZytkYWJhZml0fGdsZGFnZGR8aGpsZCdqK2RoZ2BgZGdkZmlwZGxnfGpsZGlsZGNqZ3NoZydeZmYndWJnKSN6YGRfanN2YXdofGQ9YmxjYWxnYStkamJpYWZgKCdkZWp2amV8Z2dqZGlsZycpaWdkdWNiaGZ8dWZsYWNhZ2RpYGBhYWdn";
-      const stripeCheckoutUrl = `${baseStripeUrl}?amount=${Math.round(parseFloat(amount) * 100)}`;
-      
-      // Open Stripe checkout in a new tab
-      window.open(stripeCheckoutUrl, '_blank');
-      
-      toast({
-        title: "Redirecting to Payment",
-        description: "Opening secure checkout in a new tab...",
-      });
-      
-    } catch (error) {
-      toast({
-        title: "Payment Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
+  try {
+    // Call your deployed Supabase Edge Function
+    const response = await fetch(
+      "https://zuxbimazfoyuikecuqtp.supabase.co/functions/v1/create-checkout-session",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp1eGJpbWF6Zm95dWlrZWN1cXRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI3ODIyNzcsImV4cCI6MjA2ODM1ODI3N30.DsiGRTjFmX3hduZBw-8tWFAQg8gWEdcqza7-GS3pGGU`
+
+        },
+        body: JSON.stringify({
+          priceId : 'price_1Rlx64EPJAFaH4xwGYVorI2d',
+          amount: parseFloat(amount), // send amount or priceId etc.
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (response.ok && data.url) {
+      // Redirect to Stripe Checkout URL returned by your Edge Function
+      window.location.href = data.url;
+    } else {
+      throw new Error(data.error || "Unable to create checkout session");
     }
-  };
+  } catch (error) {
+    console.error(error);
+    toast({
+      title: "Payment Error",
+      description: "Something went wrong. Please try again.",
+      variant: "destructive",
+    });
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-gray-50">
