@@ -12,6 +12,7 @@ import Checkout from "./pages/Checkout";
 import PaymentSuccess from "./pages/Payment-Success";
 import PaymentCanceled from "./pages/Payment-Canceled";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/Scrolltotop";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
