@@ -202,6 +202,12 @@ const handlePayment = async () => {
                 >
                   {isLoading ? "Processing..." : `Pay $${amount || "0.00"} Now`}
                 </Button>
+                <Button onClick={()=> window.location.href = 'https://buy.stripe.com/9B6fZg1WJeH1bZH6QlefC01'}
+                  className="w-full h-12 text-lg bg-[#000] hover:from-blue-700 hover:to-purple-700"
+                >
+                  <img src="/cashapp.svg" alt="cashapp" className="w-8" />
+                  Pay Via Cash App
+                </Button>
 
                 <div className="text-center text-sm text-gray-500">
                   <p>Secure payment powered by Stripe</p>
