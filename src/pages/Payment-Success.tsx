@@ -11,6 +11,13 @@ type StripeSession = {
   status: string;
   amount_total: number;
   customer_email?: string;
+  customer_details?: {
+    name?: string;
+    email?: string;
+    address?: {
+      country?: string;
+    };
+  };
   id: string;
 };
 
@@ -90,13 +97,13 @@ const handleDownloadReceipt = () => {
               Amount Paid: ${(session.amount_total / 100).toFixed(2)}
             </h2>
               <p className="text-lg text-gray-700 mb-4">
-                Customer Name: {session.customer_details.name }
+                Customer Name: {session.customer_details?.name || 'N/A'}
               </p>
               <p className="text-lg text-gray-700 mb-4">
-                Customer Email: {session.customer_details.email }
+                Customer Email: {session.customer_details?.email || session.customer_email || 'N/A'}
               </p>
               <p className="text-lg text-gray-700 mb-4">
-                Country: {session.customer_details.address.country }
+                Country: {session.customer_details?.address?.country || 'N/A'}
               </p>
             <p className="text-xl text-gray-600 mb-8">
               Thank you for choosing DigitalPro. Your payment has been processed successfully.
