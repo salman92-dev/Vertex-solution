@@ -11,6 +11,8 @@ import Portfolio from "./pages/Portfolio";
 import Checkout from "./pages/Checkout";
 import PaymentSuccess from "./pages/Payment-Success";
 import PaymentCanceled from "./pages/Payment-Canceled";
+import CustomerSupport from "./pages/CustomerSupport";
+import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/Scrolltotop";
 
@@ -31,6 +33,8 @@ const App = () => (
           <Route path="/checkout/:service" element={<Checkout />} />
           <Route path="/payment-success" element={<PaymentSuccess />} />
           <Route path="/payment-canceled" element={<PaymentCanceled />} />
+          <Route path="/customer-support" element={<CustomerSupport />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
