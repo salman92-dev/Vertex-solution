@@ -13,6 +13,7 @@ import PaymentSuccess from "./pages/Payment-Success";
 import PaymentCanceled from "./pages/Payment-Canceled";
 import CustomerSupport from "./pages/CustomerSupport";
 import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/Scrolltotop";
 
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/payment-canceled" element={<PaymentCanceled />} />
           <Route path="/customer-support" element={<CustomerSupport />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
