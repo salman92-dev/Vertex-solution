@@ -128,9 +128,9 @@ const Terms = () => {
                 If you have any questions about these Terms of Service, please contact us:
               </p>
               <div className="space-y-2 text-muted-foreground">
-                <p>Email: legal@digitalpro.com</p>
-                <p>Phone: (555) 123-4567</p>
-                <p>Address: 123 Business Ave, Suite 100, City, State 12345</p>
+                <p>Email: Brandonshawnwheatt@gmail.com</p>
+                <p>Phone: +1 (606) 6588085</p>
+                <p>3118 SW 15TH AVE APT 44 AMARILLO ,TX 79108</p>
               </div>
             </div>
           </div>

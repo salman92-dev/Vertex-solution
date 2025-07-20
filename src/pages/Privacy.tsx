@@ -176,7 +176,7 @@ const Privacy = () => {
                   <div className="space-y-2 text-muted-foreground">
                     <p><strong>Email:</strong> privacy@vertexsolutions.com</p>
                     <p><strong>Phone:</strong> +1 (606) 658-8085</p>
-                    <p><strong>Address:</strong> 3118 SW 15TH AVE APT 44, AMARILLO, TX 79108</p>
+                    <p><strong>Address:</strong> 3118 SW 15TH AVE APT 44 AMARILLO ,TX 79108</p>
                   </div>
                 </CardContent>
               </Card>
