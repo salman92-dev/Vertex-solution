@@ -9,8 +9,7 @@ import { Label } from "@/components/ui/label";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useToast } from "@/hooks/use-toast";
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 const Checkout = () => {
   const { service } = useParams();
@@ -71,11 +70,11 @@ const handlePayment = async () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${process.env.SUPABASE_KEY}`, // Use your Supabase service role key
+          "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_KEY}`, // Use your Supabase service role key
 
         },
         body: JSON.stringify({
-          priceId : `${process.env.PRICE_ID}`,
+          priceId : `${import.meta.env.VITE_PRICE_ID}`,
           amount: parseFloat(amount), // send amount or priceId etc.
           successUrl: `${window.location.origin}/Payment-Success`,
           cancelUrl: `${window.location.origin}/Payment-Canceled`,
