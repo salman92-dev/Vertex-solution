@@ -9,6 +9,8 @@ import { Label } from "@/components/ui/label";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useToast } from "@/hooks/use-toast";
+import dotenv from 'dotenv';
+dotenv.config();
 
 const Checkout = () => {
   const { service } = useParams();
@@ -69,11 +71,11 @@ const handlePayment = async () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp1eGJpbWF6Zm95dWlrZWN1cXRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI3ODIyNzcsImV4cCI6MjA2ODM1ODI3N30.DsiGRTjFmX3hduZBw-8tWFAQg8gWEdcqza7-GS3pGGU`
+          "Authorization": `Bearer ${process.env.SUPABASE_KEY}`, // Use your Supabase service role key
 
         },
         body: JSON.stringify({
-          priceId : 'price_1RmFFGCdz33VDPAq9WzvwWtx',
+          priceId : `${process.env.PRICE_ID}`,
           amount: parseFloat(amount), // send amount or priceId etc.
           successUrl: `${window.location.origin}/Payment-Success`,
           cancelUrl: `${window.location.origin}/Payment-Canceled`,
